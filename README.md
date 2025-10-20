@@ -35,7 +35,7 @@ See [PROGRESS.md](./PROGRESS.md) for development status.
 
 ## 🛠️ Tech Stack
 
-- **Backend**: Spring Boot 3.2 + Java 21 + PostgreSQL 15
+- **Backend**: Spring Boot 3.5.x + Java 21 + PostgreSQL 15
 - **Frontend**: Next.js 15 + React 19 + TypeScript + Axios
 - **Deployment**: AWS (EC2, RDS, S3, CloudFront)
 
