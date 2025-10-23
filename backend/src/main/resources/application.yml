@@ -1,0 +1,46 @@
+spring:
+  application:
+    name: liga-manager
+  
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ligamanager
+    username: ligamanager
+    password: dev_password_123
+    driver-class-name: org.postgresql.Driver
+  
+  jpa:
+    hibernate:
+      ddl-auto: validate  # Use Flyway for schema
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        default_schema: public
+    show-sql: true
+  
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+
+# JWT Configuration
+jwt:
+  secret: ${JWT_SECRET:your-secret-key-change-in-production-min-256-bits}
+  expiration: 86400000  # 24 hours in milliseconds
+
+# Multi-tenancy
+tenant:
+  resolution-strategy: subdomain  # or header
+  default-schema: public
+
+# Server
+server:
+  port: 8080
+  servlet:
+    context-path: /api/v1
+
+# Logging
+logging:
+  level:
+    com.ligamanager: DEBUG
+    org.hibernate.SQL: DEBUG

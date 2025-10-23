@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: ligamanager-db
+    environment:
+      POSTGRES_DB: ligamanager
+      POSTGRES_USER: ligamanager
+      POSTGRES_PASSWORD: dev_password_123
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - ligamanager-network
+
+  redis:
+    image: redis:7-alpine
+    container_name: ligamanager-redis
+    ports:
+      - "6379:6379"
+    networks:
+      - ligamanager-network
+
+volumes:
+  postgres_data:
+
+networks:
+  ligamanager-network:
+    driver: bridge
