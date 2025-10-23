@@ -57,6 +57,7 @@ mvn verify -P integration-tests
 ```
 
 **Backend runs on**: `http://localhost:8080/api/v1`
+**Note**: The base path `/api/v1` is set in `server.servlet.context-path` configuration
 
 ### Frontend (Next.js)
 
@@ -77,6 +78,15 @@ npm start
 
 # Lint code
 npm run lint
+
+# Run tests (when implemented)
+npm test
+
+# Run tests in watch mode
+npm run test:watch
+
+# Type checking
+npx tsc --noEmit
 ```
 
 **Frontend runs on**: `http://localhost:3000`
@@ -204,11 +214,37 @@ soccer-league-saas/
 
 ### Frontend Structure (Next.js 15 App Router)
 
+**Current State**: Skeleton project with basic setup
+
+**Architecture**:
 - **App Router**: File-based routing in `app/` directory
 - **Server Components**: Default for pages (optimize for performance)
 - **Client Components**: Use `'use client'` when needed for interactivity
-- **API Routes**: Can be added in `app/api/` (BFF pattern)
-- **Styling**: TailwindCSS 4 with `globals.css`
+- **State Management**: Zustand for global state
+- **Data Fetching**: TanStack Query (React Query) with Axios
+- **Form Handling**: React Hook Form with Zod validation
+- **Calendar**: react-big-calendar for match scheduling
+- **Icons**: lucide-react
+- **Styling**: TailwindCSS 4 with PostCSS
+
+**Recommended Structure** (to be implemented):
+```
+frontend/
+├── app/                      # App Router pages
+│   ├── (auth)/              # Auth route group
+│   ├── (dashboard)/         # Protected routes
+│   └── api/                 # API routes (if needed)
+├── components/              # React components
+│   ├── ui/                  # Reusable UI components
+│   ├── features/            # Feature-specific components
+│   └── layout/              # Layout components
+├── lib/                     # Utilities
+│   ├── api/                 # Axios client, API calls
+│   ├── store/               # Zustand stores
+│   └── utils/               # Helper functions
+├── hooks/                   # Custom React hooks
+└── types/                   # TypeScript types
+```
 
 ### Database Migrations (Flyway)
 
@@ -411,8 +447,12 @@ server:
 
 **Environment Variables** (`.env.local`):
 ```env
+# API Configuration
 NEXT_PUBLIC_API_URL=http://localhost:8080/api/v1
 NEXT_PUBLIC_APP_URL=http://localhost:3000
+
+# For subdomain-based multi-tenancy (when deployed)
+# NEXT_PUBLIC_TENANT_DOMAIN=ligamanager.com
 ```
 
 ## Troubleshooting
@@ -469,6 +509,15 @@ rm -rf node_modules package-lock.json
 npm install
 ```
 
+**Turbopack issues**:
+```bash
+# If Turbopack fails, try legacy webpack
+npm run dev -- --no-turbo
+
+# Clear all caches
+rm -rf .next node_modules/.cache
+```
+
 ## Important Notes
 
 ### Multi-Tenancy Best Practices
@@ -498,10 +547,58 @@ npm install
 ### Frontend Best Practices
 
 1. **Use Server Components by default** - only use 'use client' when needed
-2. **Optimize images** with Next.js Image component
-3. **Implement proper error boundaries**
-4. **Use React Query** for data fetching and caching
-5. **Follow TailwindCSS conventions** for styling
+2. **State Management**: Use Zustand for global state, React Query for server state
+3. **Forms**: Use React Hook Form with Zod schemas for validation
+4. **Type Safety**: Define API response types in `types/` directory
+5. **Error Handling**: Implement error boundaries and handle API errors with React Query
+6. **Calendar**: Use react-big-calendar for scheduling views
+7. **Icons**: Use lucide-react for consistent iconography
+
+## Quick Reference
+
+### Frontend API Client Setup
+
+When implementing API calls:
+```typescript
+// lib/api/client.ts
+import axios from 'axios';
+
+const apiClient = axios.create({
+  baseURL: process.env.NEXT_PUBLIC_API_URL,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
+
+// Add auth token interceptor
+apiClient.interceptors.request.use((config) => {
+  const token = localStorage.getItem('auth_token');
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
+
+export default apiClient;
+```
+
+### React Query Setup
+
+```typescript
+// app/providers.tsx
+'use client';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+const queryClient = new QueryClient();
+
+export function Providers({ children }) {
+  return (
+    <QueryClientProvider client={queryClient}>
+      {children}
+    </QueryClientProvider>
+  );
+}
+```
 
 ## Documentation
 
