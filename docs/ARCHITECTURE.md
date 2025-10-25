@@ -5,7 +5,7 @@
 **Project**: Liga Manager - Soccer League Management SaaS  
 **Version**: 1.0 (MVP)  
 **Target Market**: Mexico (Soccer Field Owners)  
-**Date**: January 2025  
+**Date**: October 2025  
 **Status**: Living Document
 
 ---
@@ -70,8 +70,8 @@ graph TB
     end
     
     subgraph "Application Layer"
-        API1[API Server 1<br/>Spring Boot 3.2]
-        API2[API Server 2<br/>Spring Boot 3.2]
+        API1[API Server 1<br/>Spring Boot 3.5.6]
+        API2[API Server 2<br/>Spring Boot 3.5.6]
         
         subgraph "Application Modules"
             Auth[Authentication Module]
