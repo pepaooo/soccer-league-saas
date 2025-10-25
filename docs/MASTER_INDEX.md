@@ -15,23 +15,35 @@ This is your master guide for building a production-ready SaaS platform to manag
 
 | Document | Purpose | Time to Read |
 |----------|---------|--------------|
-| **[QUICKSTART.md](#)** | How to use these docs with AI assistants | 10 min |
-| **[PROJECT_SETUP.md](#)** | Complete project setup instructions | 30 min |
+| **[README.md](./README.md)** | Documentation overview and navigation | 5 min |
+| **[QUICKSTART.md](./QUICKSTART.md)** | How to use these docs with AI assistants | 10 min |
+| **[PROJECT_SETUP.md](./PROJECT_SETUP.md)** | Complete project setup instructions | 30 min |
 
 ### 📅 Implementation Guides
 
 | Document | Purpose | When to Use |
 |----------|---------|-------------|
-| **[IMPLEMENTATION_ROADMAP.md](#)** | Sprint-by-sprint tasks (8 weeks) | Daily during development |
+| **[IMPLEMENTATION_ROADMAP.md](./IMPLEMENTATION_ROADMAP.md)** | Sprint-by-sprint tasks (8 weeks) | Daily during development |
 | **PROGRESS.md** | Track your progress (create this yourself) | Daily updates |
 
 ### 📖 Technical References
 
 | Document | Purpose | When to Use |
 |----------|---------|-------------|
-| **[API_REFERENCE.md](#)** | Complete API documentation | When implementing endpoints |
-| **[DATABASE_SCHEMA.md](#)** | Database design & SQL queries | When creating tables/queries |
-| **[DEPLOYMENT_GUIDE.md](#)** | AWS production deployment | Week 8 (deployment phase) |
+| **[ARCHITECTURE.md](./ARCHITECTURE.md)** | Complete system architecture | Understanding design decisions |
+| **[API_REFERENCE.md](./API_REFERENCE.md)** | Complete API documentation | When implementing endpoints |
+| **[DATABASE_SCHEMA.md](./DATABASE_SCHEMA.md)** | Database design & SQL queries | When creating tables/queries |
+| **[CODE_EXAMPLES.md](./CODE_EXAMPLES.md)** | Code templates and patterns | When writing new features |
+| **[DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md)** | AWS production deployment | Week 8 (deployment phase) |
+| **[TROUBLESHOOTING.md](./TROUBLESHOOTING.md)** | Common issues and solutions | When encountering problems |
+
+### 🔍 Reviews & Audits
+
+| Review | Date | Status | Summary |
+|--------|------|--------|---------|
+| **[Schema Implementation](./reviews/2025-10-24-schema-implementation/)** | Oct 24, 2025 | ✅ Complete | 51 gaps fixed, 100% compliance |
+
+**See**: [reviews/](./reviews/) for all reviews and verifications.
 
 ---
 
@@ -252,7 +264,7 @@ Evening (30 min):
 ## 🛠️ Technology Stack Summary
 
 ### Backend
-- **Framework**: Spring Boot 3.2
+- **Framework**: Spring Boot 3.5.6
 - **Language**: Java 21
 - **Database**: PostgreSQL 15+
 - **Cache**: Redis
