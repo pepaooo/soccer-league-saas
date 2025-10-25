@@ -4,16 +4,65 @@ A multi-tenant SaaS platform for soccer field owners in Mexico to manage leagues
 
 ## 📚 Documentation
 
-All documentation is in the [`docs/`](./docs/) folder:
+### 🏗️ Architecture & Design
 
-- [Quick Start Guide](./docs/QUICKSTART.md) - Start here!
-- [Project Setup](./docs/PROJECT_SETUP.md) - Complete setup instructions
-- [Implementation Roadmap](./docs/IMPLEMENTATION_ROADMAP.md) - 8-week sprint guide
-- [API Reference](./docs/API_REFERENCE.md) - Complete API documentation
-- [Database Schema](./docs/DATABASE_SCHEMA.md) - Database design
-- [Deployment Guide](./docs/DEPLOYMENT_GUIDE.md) - AWS deployment
-- [Code Examples](./docs/CODE_EXAMPLES.md) - Ready-to-use code templates
-- [Troubleshooting](./docs/TROUBLESHOOTING.md) - Common issues & solutions
+**Start here to understand the system:**
+
+1. **[ARCHITECTURE.md](./docs/ARCHITECTURE.md)** ⭐ **READ FIRST**
+   - System architecture with diagrams
+   - Design decisions (ADRs)
+   - Multi-tenancy strategy
+   - Security architecture
+   - Evolution roadmap
+
+### 🚀 Getting Started
+
+2. **[QUICKSTART.md](./docs/QUICKSTART.md)** - How to use these docs with AI
+3. **[PROJECT_SETUP.md](./docs/PROJECT_SETUP.md)** - Complete setup guide
+
+### 💻 Implementation
+
+4. **[IMPLEMENTATION_ROADMAP.md](./docs/IMPLEMENTATION_ROADMAP.md)** - 8-week sprint guide
+5. **[CODE_EXAMPLES.md](./docs/CODE_EXAMPLES.md)** - Ready-to-use code templates
+
+### 📖 Reference
+
+6. **[API_REFERENCE.md](./docs/API_REFERENCE.md)** - Complete API documentation
+7. **[DATABASE_SCHEMA.md](./docs/DATABASE_SCHEMA.md)** - Database design
+
+### 🔧 Operations
+
+8. **[DEPLOYMENT_GUIDE.md](./docs/DEPLOYMENT_GUIDE.md)** - AWS deployment
+9. **[TROUBLESHOOTING.md](./docs/TROUBLESHOOTING.md)** - Common issues
+
+### 📝 Notes
+
+10. **[UPDATE_VERIFICATION.md](./docs/UPDATE_VERIFICATION.md)** - Next.js 15 migration notes
+
+---
+
+## 📖 Recommended Reading Order
+
+**For First-Time Readers:**
+1. ARCHITECTURE.md (understand the "why")
+2. QUICKSTART.md (learn the workflow)
+3. PROJECT_SETUP.md (set up environment)
+4. IMPLEMENTATION_ROADMAP.md (start coding)
+
+**Daily Development:**
+1. IMPLEMENTATION_ROADMAP.md (today's tasks)
+2. CODE_EXAMPLES.md (copy code templates)
+3. API_REFERENCE.md (check endpoints)
+4. TROUBLESHOOTING.md (when stuck)
+
+**Before Deployment:**
+1. DEPLOYMENT_GUIDE.md (AWS setup)
+2. ARCHITECTURE.md → Deployment section
+
+**For Team Members:**
+1. ARCHITECTURE.md (system overview)
+2. PROJECT_SETUP.md (local setup)
+3. API_REFERENCE.md (understand APIs)
 
 ## 🚀 Quick Start
 ```bash
